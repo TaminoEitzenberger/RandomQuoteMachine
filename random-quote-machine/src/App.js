@@ -10,7 +10,7 @@ class App extends React.Component {
       quotes: [],
       randomIndex: 0,
       currentColorIndex: 0,
-      colors: ['#005064', '#58001d', '#bda165']
+      colors: ['#005064', '#6c083f', '#B1A07C', '#6fad1c']
     }
     this.setRandomIndex = this.setRandomIndex.bind(this);
   }
@@ -34,18 +34,30 @@ class App extends React.Component {
 
   setRandomIndex() {
     var newRandomIndex = this.getNewRandomIndex();
+    var newRandomColorIndex = this.getNewRandomColorIndex();
     this.setState({
-      randomIndex: newRandomIndex
+      randomIndex: newRandomIndex,
+      currentColorIndex: newRandomColorIndex
     });
   }
 
   getNewRandomIndex() {
     let newRandomIndex = Math.floor(Math.random() * this.state.quotes.length);
     if (newRandomIndex === this.state.randomIndex) {
-      this.getNewRandomIndex();
+      newRandomIndex = this.getNewRandomIndex();
     }
     return newRandomIndex;
   }
+
+  getNewRandomColorIndex() {
+    let newRandomColorIndex = Math.floor(Math.random() * this.state.colors.length);
+    if (newRandomColorIndex === this.state.currentColorIndex) {
+      newRandomColorIndex = this.getNewRandomColorIndex();
+    }
+    return newRandomColorIndex;
+  }
+  
+
 
   render() {
 
