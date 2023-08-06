@@ -1,7 +1,8 @@
 import React from "react";
 
 function TweetButton(props) {
-    let url = `twitter.com/intent/tweet?text=${props.text + " | " + props.author}`
+    let text = props.text + " | " + props.author
+    let url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text.trim());
     return (
         <a id={props.id} href={url}>
         <svg id='twitter-icon' width='40' height='40' fill={props.color} viewBox="0 0 16 16">
