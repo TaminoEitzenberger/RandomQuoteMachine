@@ -51,7 +51,7 @@ class App extends React.Component {
 
     var content;
     if (this.state.fetching) {
-      content = (<h1>Loading quotes...</h1>)
+      content = (<p>Loading quotes...</p>)
     }
     else {
       content = (
